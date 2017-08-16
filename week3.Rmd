@@ -1,0 +1,29 @@
+---
+title: "Week 3 Assignment"
+author: "Abhishek Sinha"
+date: "August 16, 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(plotly))
+```
+
+## Airports in India
+
+```{r echo=FALSE}
+data(mtcars)
+mtcars$am <- as.factor(mtcars$am)
+levels(mtcars$am) <- c("Automatic","Manual")
+mtcars$cyl <- as.factor(mtcars$cyl)
+mtcars$HorsePower <- mtcars$hp
+mtcars$Transmission <- mtcars$am
+#g<-ggplot(mtcars) + aes(x=wt, y=mpg, col=Transmission, size=HorsePower) + geom_point() + xlab("Weight") + ylab("MPG")
+#p<-ggplotly(g)
+plot_ly(data=mtcars, mtcars$wt, mtcars$mpg)
+
+```
+
+## Thank You
