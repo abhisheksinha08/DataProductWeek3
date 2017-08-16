@@ -11,19 +11,17 @@ suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(plotly))
 ```
 
-## Airports in India
+## Weight vs MPG for Cars
 
-```{r echo=FALSE}
+```{r echo=FALSE, comment="", warning=FALSE, fig.align='center'}
 data(mtcars)
 mtcars$am <- as.factor(mtcars$am)
 levels(mtcars$am) <- c("Automatic","Manual")
 mtcars$cyl <- as.factor(mtcars$cyl)
 mtcars$HorsePower <- mtcars$hp
 mtcars$Transmission <- mtcars$am
-#g<-ggplot(mtcars) + aes(x=wt, y=mpg, col=Transmission, size=HorsePower) + geom_point() + xlab("Weight") + ylab("MPG")
-#p<-ggplotly(g)
-plot_ly(data=mtcars, mtcars$wt, mtcars$mpg)
-
+p<- plot_ly(data=mtcars, x=~wt, y=~mpg, size=~HorsePower, color=~Transmission, mode="markers", type="scatter")
+p
 ```
 
 ## Thank You
